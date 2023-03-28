@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block head %}
+<title>Orders</title>
+<style>
+    h1.intro {
+        padding: 40px;
+    }
+    
+    form
+</style>
+{% endblock %} {% block body %}
+<div class="container">
+    <hr> {% for post in posts%}
+    <div class="container-fluid bg-light text-dark rounded">
+        <small class="text-muted">Order no: {{post.id}}</small>
+        <br>
+        <small class="text-muted ">Identifier:</small>
+        <h2 class="display-6 ">{{post.title}}</h2>
+        <small class="text-muted ">Ordered Items:</small>
+        <p>{{post.content}}</p>
+        <small class="text-muted ">Order Placed From:</small>
+        <p>{{post.author}}</p>
+        <small class="text-muted ">Added on and at :</small>
+        <small>{{post.date_posted.strftime('%d-%m-%Y %H:%M:%S')}}</small>
+
+        <br>
+        <br>
+        <a class="btn btn-outline-danger " href="/posts/delete/{{post.id}} ">Received</a>
+        <a class="btn btn-outline-primary " href="/posts/edit/{{post.id}} ">edit</a>
+        <hr>
+    </div>
+    {% endfor %}
+</div>
+</div>
+<hr> {% endblock %}
